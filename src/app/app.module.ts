@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+
 
 import { AppComponent } from './app.component';
 
@@ -10,6 +10,7 @@ import { SearchtitleComponent } from './components/searchtitle/searchtitle.compo
 
 import { AboutComponent } from './components/about/about.component';
 import { SearchComponent } from './components/search/search.component';
+import { Routes, RouterModule} from '@angular/router';
 
 
 
@@ -21,11 +22,7 @@ const routes:Routes= [
   {path:'search', component:SearchComponent},
 ]
 
-imports:[
-  BrowserModule,
-  RouterModule.forRoot(routes),
-  HttpClientModule
-]
+
 
 @NgModule({
   declarations: [
@@ -36,7 +33,8 @@ imports:[
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [OmdbApiService],
   bootstrap: [AppComponent]
