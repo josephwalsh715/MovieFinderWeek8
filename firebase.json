@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist\\wp1-angular-projects",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
