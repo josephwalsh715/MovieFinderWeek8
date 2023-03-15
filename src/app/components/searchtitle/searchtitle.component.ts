@@ -9,7 +9,7 @@ import { IOMDBResponse } from 'src/app/omdbresponse';
 })
 export class SearchtitleComponent {
 
-constructor(private _omdbService:OmdbApiService){}
+
 
   title = 'Movie Finder';
   movieData:IOMDBResponse | undefined;
@@ -17,7 +17,7 @@ constructor(private _omdbService:OmdbApiService){}
   name = 'Joe Walsh';
   studentNo = 'S00222915';
 
-  
+  constructor(private _omdbService:OmdbApiService){}
 
   getMovieDetails(movieName:string): boolean {
     this._omdbService.getMovieData(movieName).subscribe(

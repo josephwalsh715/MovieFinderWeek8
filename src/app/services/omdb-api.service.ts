@@ -4,6 +4,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import {catchError, tap } from 'rxjs';
 import { IOMDBResponse } from '../omdbresponse';
+import { IOMDBResponse2 } from './omdbresponse2';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,23 @@ import { IOMDBResponse } from '../omdbresponse';
 export class OmdbApiService {
 
   private _siteURL="https://www.omdbapi.com/"
-  private _key="?apikey=15e75ed"
+  private _key="?apikey=15e75ed&t="
+  private _key2="?apikey=15e75ed&s="
   constructor(private _http:HttpClient) { }
 
+
+
   getMovieData(movieName:string):Observable<IOMDBResponse> {
-    return this._http.get<IOMDBResponse>(this._siteURL+ this._key + movieName)
+    return this._http.get<IOMDBResponse>(this._siteURL+ this._key + movieName )
+    .pipe(
+      tap(data => console.log('Moviedata/error' + JSON.stringify(data))
+    ),
+    catchError(this.handleError)
+    );
+  }
+
+  getMoviesData(movieName:string, page:number):Observable<IOMDBResponse2> {
+    return this._http.get<IOMDBResponse2>(this._siteURL+ this._key2 + movieName + "&page=" + page)
     .pipe(
       tap(data => console.log('Moviedata/error' + JSON.stringify(data))
     ),

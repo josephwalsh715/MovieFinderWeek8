@@ -92,6 +92,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "WP1Angular-projects:build:production",
+            "firebaseProject": "wp1week8moviefinder",
+            "firebaseHostingSite": "wp1week8moviefinder"
+          }
         }
       }
     }

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "wp1week8moviefinder"
+  },
+  "targets": {
+    "wp1week8moviefinder": {
+      "hosting": {
+        "WP1Angular-projects": [
+          "wp1week8moviefinder"
+        ]
+      }
+    }
   }
 }
